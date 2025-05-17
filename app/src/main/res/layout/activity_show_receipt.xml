@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShowReceiptActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Transaction Receipt"
+        app:titleTextColor="#FFFFFF" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/receiptHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Receipt"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingBottom="8dp" />
+
+            <TableLayout
+                android:id="@+id/receiptLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1,2,3"
+                android:background="@drawable/table_border" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thank you for reviewing your contributions and debts. This receipt is provided for your records."
+                android:textSize="16sp"
+                android:paddingTop="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please ensure all payments are settled promptly to maintain good financial standing within your group."
+                android:textSize="16sp"
+                android:paddingTop="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="If you have any questions regarding your transactions, please contact the trip organizer."
+                android:textSize="16sp"
+                android:paddingTop="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="We appreciate your cooperation."
+                android:textSize="16sp"
+                android:paddingTop="8dp" />
+
+            <TextView
+                android:id="@+id/guideText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Review the receipt details above. This receipt summarizes the contributions and debts for your trip."
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:paddingTop="16dp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

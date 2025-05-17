@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Final Project</string>
+    <string name="fileAuthority">muli.labs</string>
+    <string name="select_friend_group">Select Friend Group</string>
+    <string name="select_contributors">Select Contributors</string>
+
+</resources>

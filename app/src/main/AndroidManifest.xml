@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- NEW: application permissions -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- NEEDED TO ACCESS CAMERA and GALLERY FOR ANDROID 11+ -->
+    <!-- https://stackoverflow.com/questions/62535856/intent-resolveactivity-returns-null-in-api-30/64204646#64204646 -->
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".MuliLabsApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MuliLabs"
+        tools:targetApi="31">
+        <activity
+            android:name=".ProfileFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ShowReceiptActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShowStreamlinedTransactionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditTripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddTripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddFriendGroupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditFriendGroupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TripDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImageActivity"
+            android:exported="false" />
+        <!--
+        NEW: the file authority is found in the res/values/strings.xml
+        this MUST match your package name in the <manifest> tag
+        -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/fileAuthority"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- there must be a res/xml/file_provider_path.xml or this will fail -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_path" />
+        </provider>
+
+        <activity
+            android:name=".EditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
